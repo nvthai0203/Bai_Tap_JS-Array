@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Bài Tập JS Array</title>
+</head>
+
+<body class="bg-slate-100 min-h-screen py-8 px-4">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <header class="text-center">
+            <h1 class="text-3xl font-bold text-slate-800">Bài Tập JavaScript Array</h1>
+            <p class="text-slate-500 mt-1">Nhập số nguyên và thực hiện các chức năng trên mảng</p>
+        </header>
+
+        <!-- Nhập số vào mảng -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4">Nhập số nguyên vào mảng</h2>
+            <div class="flex flex-wrap gap-3 items-end">
+                <div class="flex-1 min-w-[160px]">
+                    <label for="numberInput" class="block text-sm text-slate-600 mb-1">Số nguyên</label>
+                    <input id="numberInput" type="number"
+                        class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Nhập số nguyên...">
+                </div>
+                <button id="btnAdd"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-lg transition">
+                    Thêm vào mảng
+                </button>
+                <button id="btnClear"
+                    class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium px-5 py-2 rounded-lg transition">
+                    Xóa mảng
+                </button>
+            </div>
+            <div class="mt-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="text-sm text-slate-500">Mảng hiện tại:</span>
+                <p id="arrayDisplay" class="font-mono text-slate-800 mt-1 break-all">[]</p>
+            </div>
+        </section>
+
+        <!-- Các chức năng -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4">Chọn các chức năng bên dưới:</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+
+                <!-- 1 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">1. Tổng các số dương</p>
+                    <button data-fn="1"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Tính
+                        tổng</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 2 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">2. Đếm số dương</p>
+                    <button data-fn="2"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Đếm</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 3 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">3. Số nhỏ nhất</p>
+                    <button data-fn="3"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Tìm</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 4 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">4. Số dương nhỏ nhất</p>
+                    <button data-fn="4"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Tìm</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 5 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">5. Số chẵn cuối cùng</p>
+                    <button data-fn="5"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Tìm</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 6 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">6. Đổi chỗ 2 giá trị</p>
+                    <div class="flex gap-2">
+                        <input id="index1" type="number" min="0" placeholder="Vị trí 1"
+                            class="w-full border border-slate-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input id="index2" type="number" min="0" placeholder="Vị trí 2"
+                            class="w-full border border-slate-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button data-fn="6"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Đổi
+                        chỗ</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 7 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">7. Sắp xếp tăng dần</p>
+                    <button data-fn="7"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Sắp
+                        xếp</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 8 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2">
+                    <p class="font-medium text-slate-700">8. Số nguyên tố đầu tiên</p>
+                    <button data-fn="8"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Tìm</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 9 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2 sm:col-span-2">
+                    <p class="font-medium text-slate-700">9. Đếm số nguyên trong mảng số thực</p>
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <input id="floatArrayInput" type="text" placeholder="VD: 1.5, 2, 3.0, -4, 5.7"
+                            class="flex-1 min-w-[200px] border border-slate-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button data-fn="9"
+                            class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">Đếm
+                            số nguyên</button>
+                    </div>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+                <!-- 10 -->
+                <div class="border border-slate-200 rounded-lg p-4 space-y-2 sm:col-span-2">
+                    <p class="font-medium text-slate-700">10. So sánh số lượng số dương và số âm</p>
+                    <button data-fn="10"
+                        class="fn-btn bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-md transition">So
+                        sánh</button>
+                    <p class="result text-sm text-slate-600 min-h-[1.25rem]"></p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
